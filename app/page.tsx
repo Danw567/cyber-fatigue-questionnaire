@@ -1,5 +1,9 @@
-import Image from "next/image";
+import Logo from "./_components/Logo";
 
 export default function Home() {
-  return <p>This is the questionnaire landing page</p>;
+  return (
+    <div className="bg-white p-10">
+      <Logo />
+    </div>
+  );
 }
