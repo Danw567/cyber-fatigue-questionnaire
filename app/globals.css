@@ -7,6 +7,7 @@
   --primary-off: #0d9488;
   --secondary: #0f172a;
   --alt: #334155;
+  --card: #ffffff;
 }
 
 @theme inline {
@@ -16,6 +17,124 @@
   --color-primary-off: var(--primary-off);
   --color-secondary: var(--secondary);
   --color-alt: var(--alt);
+  --color-card: var(--card);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
+
+body {
+  color: var(--secondary);
+}
+
+h1 {
+  font-size: 1.875rem; /* 30px */
+  line-height: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  font-size: 1.5rem; /* 24px */
+  line-height: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1rem; /* 16px */
+  line-height: 1.5rem;
+  font-weight: 500;
+}
+
+h6 {
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+p,
+li {
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.5rem; /* Generous line height prevents eye strain on mobile */
+}
+
+ul {
+  list-style-type: disc;
+  list-style-position: outside;
+  margin-left: 2em;
+}
+
+li::marker {
+  color: var(--primary);
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3rem; /* 48px - Big, commanding header */
+    line-height: 1;
+  }
+
+  h2 {
+    font-size: 1.875rem; /* 30px */
+    line-height: 2.25rem;
+  }
+
+  h3 {
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem;
+  }
+
+  h4 {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem;
+  }
+
+  h5 {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem;
+  }
+
+  h6 {
+    font-size: 1rem; /* 16px */
+    line-height: 1.5rem;
+  }
+
+  p,
+  li {
+    font-size: 1rem; /* 16px - Premium readable body standard */
+    line-height: 1.625rem;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--alt);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-off);
 }
