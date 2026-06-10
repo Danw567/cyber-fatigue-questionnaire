@@ -27,7 +27,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="bg-background">
-        <main className="bg-card mx-auto h-dvh max-w-200 overflow-auto shadow-2xl">
+        <main className="bg-card mx-auto h-dvh max-w-200 overflow-auto pb-10 shadow-2xl">
           {children}
         </main>
       </body>
