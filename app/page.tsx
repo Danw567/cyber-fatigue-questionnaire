@@ -6,10 +6,7 @@ import { ChevronRight } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="p-5">
-      <div className="flex items-center justify-between">
-        <Logo width="150" />
-      </div>
+    <div>
       <div className="mt-5">
         <h1>Cyber Fatigue Survey</h1>
         <div className="mt-6 flex flex-col gap-4">
@@ -31,7 +28,7 @@ export default function Home() {
             <Button
               variant="primary"
               className="group w-full justify-center sm:w-fit"
-              href="login"
+              href="/survey"
               title="Start survey"
             >
               Start Survey{" "}

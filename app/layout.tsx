@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Logo from "./_components/Logo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +28,10 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="bg-background">
-        <main className="bg-card mx-auto h-dvh max-w-200 overflow-auto pb-10 shadow-2xl">
+        <main className="bg-card mx-auto h-dvh max-w-200 overflow-auto p-5 pb-10 shadow-2xl">
+          <div className="flex items-center justify-between">
+            <Logo width="150" />
+          </div>
           {children}
         </main>
       </body>
