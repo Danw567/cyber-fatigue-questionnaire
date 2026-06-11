@@ -7,16 +7,76 @@
   --primary-off: #0d9488;
   --secondary: #0f172a;
   --alt: #334155;
+  --destructive: #e11d48;
   --card: #ffffff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary-50: color-mix(in srgb, var(--primary) 5%, white);
+  --color-primary-100: color-mix(in srgb, var(--primary) 10%, white);
+  --color-primary-150: color-mix(in srgb, var(--primary) 20%, white);
+
+  --color-primary-200: color-mix(in srgb, var(--primary) 30%, white);
+  --color-primary-300: color-mix(in srgb, var(--primary) 50%, white);
+  --color-primary-400: color-mix(in srgb, var(--primary) 70%, white);
   --color-primary: var(--primary);
+  --color-primary-600: color-mix(in srgb, var(--primary) 85%, black);
+  --color-primary-700: color-mix(in srgb, var(--primary) 70%, black);
+  --color-primary-800: color-mix(in srgb, var(--primary) 55%, black);
+  --color-primary-900: color-mix(in srgb, var(--primary) 40%, black);
+  --color-primary-950: color-mix(in srgb, var(--primary) 25%, black);
+
+  --color-primary-off-50: color-mix(in srgb, var(--primary-off) 5%, white);
+  --color-primary-off-100: color-mix(in srgb, var(--primary-off) 10%, white);
+  --color-primary-off-200: color-mix(in srgb, var(--primary-off) 30%, white);
+  --color-primary-off-300: color-mix(in srgb, var(--primary-off) 50%, white);
+  --color-primary-off-400: color-mix(in srgb, var(--primary-off) 70%, white);
   --color-primary-off: var(--primary-off);
+  --color-primary-off-600: color-mix(in srgb, var(--primary-off) 85%, black);
+  --color-primary-off-700: color-mix(in srgb, var(--primary-off) 70%, black);
+  --color-primary-off-800: color-mix(in srgb, var(--primary-off) 55%, black);
+  --color-primary-off-900: color-mix(in srgb, var(--primary-off) 40%, black);
+  --color-primary-off-950: color-mix(in srgb, var(--primary-off) 25%, black);
+
+  --color-secondary-50: color-mix(in srgb, var(--secondary) 5%, white);
+  --color-secondary-100: color-mix(in srgb, var(--secondary) 10%, white);
+  --color-secondary-200: color-mix(in srgb, var(--secondary) 30%, white);
+  --color-secondary-300: color-mix(in srgb, var(--secondary) 50%, white);
+  --color-secondary-400: color-mix(in srgb, var(--secondary) 70%, white);
   --color-secondary: var(--secondary);
+  --color-secondary-600: color-mix(in srgb, var(--secondary) 85%, black);
+  --color-secondary-700: color-mix(in srgb, var(--secondary) 70%, black);
+  --color-secondary-800: color-mix(in srgb, var(--secondary) 55%, black);
+  --color-secondary-900: color-mix(in srgb, var(--secondary) 40%, black);
+  --color-secondary-950: color-mix(in srgb, var(--secondary) 25%, black);
+
+  --color-alt-50: color-mix(in srgb, var(--alt) 5%, white);
+  --color-alt-100: color-mix(in srgb, var(--alt) 10%, white);
+  --color-alt-200: color-mix(in srgb, var(--alt) 30%, white);
+  --color-alt-300: color-mix(in srgb, var(--alt) 50%, white);
+  --color-alt-400: color-mix(in srgb, var(--alt) 70%, white);
   --color-alt: var(--alt);
+  --color-alt-600: color-mix(in srgb, var(--alt) 85%, black);
+  --color-alt-700: color-mix(in srgb, var(--alt) 70%, black);
+  --color-alt-800: color-mix(in srgb, var(--alt) 55%, black);
+  --color-alt-900: color-mix(in srgb, var(--alt) 40%, black);
+  --color-alt-950: color-mix(in srgb, var(--alt) 25%, black);
+
+  --color-destructive-50: color-mix(in srgb, var(--destructive) 5%, white);
+  --color-destructive-100: color-mix(in srgb, var(--destructive) 10%, white);
+  --color-destructive-150: color-mix(in srgb, var(--destructive) 20%, white);
+  --color-destructive-200: color-mix(in srgb, var(--destructive) 30%, white);
+  --color-destructive-300: color-mix(in srgb, var(--destructive) 50%, white);
+  --color-destructive-400: color-mix(in srgb, var(--destructive) 70%, white);
+  --color-destructive: var(--destructive);
+  --color-destructive-600: color-mix(in srgb, var(--destructive) 85%, black);
+  --color-destructive-700: color-mix(in srgb, var(--destructive) 70%, black);
+  --color-destructive-800: color-mix(in srgb, var(--destructive) 55%, black);
+  --color-destructive-900: color-mix(in srgb, var(--destructive) 40%, black);
+  --color-destructive-950: color-mix(in srgb, var(--destructive) 25%, black);
+
   --color-card: var(--card);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -70,6 +130,7 @@ p,
 li {
   font-size: 0.875rem; /* 14px */
   line-height: 1.5rem; /* Generous line height prevents eye strain on mobile */
+  color: var(--alt);
 }
 
 ul {
