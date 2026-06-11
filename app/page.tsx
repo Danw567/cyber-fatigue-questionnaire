@@ -2,13 +2,14 @@ import Logo from "./_components/Logo";
 import DataSafeGaurdSplit from "./_features/DataSafeGaurdSplit";
 import InfoCard from "./_components/InfoCard";
 import StartSurveyBtn from "./_features/StartSurveyBtn";
+import Button from "./_components/Button";
+import { ChevronRight } from "lucide-react";
 
 export default function Home() {
   return (
     <div className="p-5">
       <div className="flex items-center justify-between">
         <Logo width="150" />
-        <StartSurveyBtn />
       </div>
       <div className="mt-5">
         <h1>Cyber Fatigue Survey</h1>
@@ -28,7 +29,17 @@ export default function Home() {
           />
 
           <div className="mt-4 flex items-center justify-center">
-            <StartSurveyBtn />
+            <Button
+              variant="primary"
+              className="group w-full justify-center sm:w-fit"
+              href="login"
+            >
+              Start Survey{" "}
+              <ChevronRight
+                size={20}
+                className="relative right-0 transition-all group-hover:-right-1.5"
+              />
+            </Button>
           </div>
         </div>
       </div>
