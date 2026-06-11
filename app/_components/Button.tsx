@@ -26,7 +26,7 @@ export default function Button({
     <a
       href={href || undefined}
       onClick={onClick || undefined}
-      className={`flex w-fit cursor-pointer items-center gap-1 rounded px-4 py-3 text-white transition-all ${buttonClass} ${className}`}
+      className={`flex w-fit cursor-pointer items-center gap-1 rounded px-6 py-3 text-white transition-all ${buttonClass} ${className}`}
     >
       {children}
     </a>
