@@ -1,7 +1,6 @@
 import Logo from "./_components/Logo";
 import DataSafeGaurdSplit from "./_features/DataSafeGaurdSplit";
 import InfoCard from "./_components/InfoCard";
-import StartSurveyBtn from "./_features/StartSurveyBtn";
 import Button from "./_components/Button";
 import { ChevronRight } from "lucide-react";
 
