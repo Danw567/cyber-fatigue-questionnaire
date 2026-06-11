@@ -8,6 +8,7 @@ interface ButtonProps {
   href?: string;
   onClick?: any;
   className?: string;
+  title?: string;
 }
 
 export default function Button({
@@ -16,6 +17,7 @@ export default function Button({
   onClick,
   href,
   className = "",
+  title,
 }: ButtonProps) {
   const primaryClass = "bg-primary-off hover:bg-primary";
   const secondaryClass = "";
@@ -24,6 +26,7 @@ export default function Button({
 
   return (
     <a
+      title={title}
       href={href || undefined}
       onClick={onClick || undefined}
       className={`flex w-fit cursor-pointer items-center gap-1 rounded px-6 py-3 text-white transition-all ${buttonClass} ${className}`}

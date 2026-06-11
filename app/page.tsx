@@ -32,6 +32,7 @@ export default function Home() {
               variant="primary"
               className="group w-full justify-center sm:w-fit"
               href="login"
+              title="Start survey"
             >
               Start Survey{" "}
               <ChevronRight
