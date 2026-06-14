@@ -31,6 +31,7 @@ export default function RootLayout({
         <main className="bg-card mx-auto h-dvh max-w-200 overflow-auto p-5 pb-10 shadow-2xl">
           <div className="flex items-center justify-between">
             <Logo width="150" />
+            <div id="logo-bar-right"></div>
           </div>
           {children}
         </main>

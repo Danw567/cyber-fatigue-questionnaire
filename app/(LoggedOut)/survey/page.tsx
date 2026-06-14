@@ -1,3 +1,9 @@
+import Survey from "./features/Survey";
+
 export default function page() {
-  return <div>Survey page</div>;
+  return (
+    <div className="mt-5">
+      <Survey />
+    </div>
+  );
 }

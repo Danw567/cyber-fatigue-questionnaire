@@ -20,7 +20,7 @@ export default function Button({
   title,
 }: ButtonProps) {
   const primaryClass = "bg-primary-off hover:bg-primary";
-  const secondaryClass = "";
+  const secondaryClass = "bg-secondary hover:bg-alt";
 
   const buttonClass = variant === "primary" ? primaryClass : secondaryClass;
 
