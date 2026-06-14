@@ -77,7 +77,7 @@ function Section({
       {statements.map((st, i) => (
         <Statement key={`${sectionNumber}-${i}`} statement={st} />
       ))}
-      <div className="my-10 flex items-center justify-between">
+      <div className="my-10 flex items-center justify-between gap-3">
         {sectionNumber > 0 ? (
           <Button
             variant="secondary"
