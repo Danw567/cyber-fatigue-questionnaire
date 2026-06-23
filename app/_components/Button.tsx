@@ -19,8 +19,10 @@ export default function Button({
   className = "",
   title,
 }: ButtonProps) {
-  const primaryClass = "bg-primary-off hover:bg-primary";
-  const secondaryClass = "bg-secondary hover:bg-alt";
+  const primaryClass =
+    "bg-primary-off hover:bg-primary text-white border-primary-off hover:border-primary";
+  const secondaryClass =
+    "border-alt text-alt hover:border-secondary hover:text-secondary";
 
   const buttonClass = variant === "primary" ? primaryClass : secondaryClass;
 
@@ -29,7 +31,7 @@ export default function Button({
       title={title}
       href={href || undefined}
       onClick={onClick || undefined}
-      className={`flex w-fit cursor-pointer items-center gap-1 rounded px-6 py-3 text-white transition-all ${buttonClass} ${className}`}
+      className={`flex w-fit cursor-pointer items-center gap-1 rounded border-2 px-6 py-3 transition-all ${buttonClass} ${className}`}
     >
       {children}
     </a>

@@ -15,7 +15,7 @@ export default function RadioInput({
 }) {
   return (
     <div
-      className={`border-alt-50 hover:border-alt-200 ${selected ? "border-primary! bg-primary-100 py-3" : ""} flex cursor-pointer items-center gap-3 rounded border px-3 py-1 transition-all not-last:mb-1`}
+      className={`border-alt-50 hover:border-alt-200 ${selected ? "border-primary! bg-primary-100 py-5" : ""} flex cursor-pointer items-center gap-3 rounded border px-3 py-3 transition-all not-last:mb-1`}
       role="radio"
       onClick={() => setSelected(value)}
     >
