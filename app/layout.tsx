@@ -29,9 +29,9 @@ export default function RootLayout({
     >
       <body className="bg-background">
         <main className="bg-card mx-auto h-dvh max-w-200 overflow-auto p-5 pb-10 shadow-2xl">
-          <div className="flex items-center justify-between">
+          <div className="flex justify-between gap-30">
             <Logo width="150" />
-            <div id="logo-bar-right"></div>
+            <div id="logo-bar-right" className="w-full"></div>
           </div>
           {children}
         </main>

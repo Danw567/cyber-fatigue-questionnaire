@@ -1,18 +1,43 @@
 "use client";
-import Button from "@/app/_components/Button";
-import RadioInput from "@/app/_components/RadioInput";
-import {
-  surveyAnswers,
-  surveyStatements,
-  SurveyStatementsT,
-} from "@/app/_data/statements";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import ProgressBar from "@/app/_components/ProgressBar";
+import { surveyStatements } from "@/app/_data/statements";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import SurveySection from "./SurveySection";
+
+export type SelectedAnswer = {
+  type: string;
+  statementNumber: number;
+  score: number;
+};
 
 export default function Survey() {
   const [mounted, setMounted] = useState(false);
   const [section, setSection] = useState(0);
+  const [answers, setAnswers] = useState<SelectedAnswer[]>([]);
+
+  const answerCount = surveyStatements.flatMap((ss) => ss.statements).length;
+  const percentage = (answers.length / answerCount) * 100;
+
+  const handleSetAnswers = (ans: SelectedAnswer) => {
+    setAnswers((prev) => {
+      const exists = prev.some(
+        (item) =>
+          item.type === ans.type &&
+          item.statementNumber === ans.statementNumber,
+      );
+
+      if (exists) {
+        return prev.map((item) =>
+          item.type === ans.type && item.statementNumber === ans.statementNumber
+            ? { ...item, score: ans.score }
+            : item,
+        );
+      }
+
+      return [...prev, ans];
+    });
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -46,102 +71,19 @@ export default function Survey() {
   return (
     <>
       <div id="survey-top" className="h-0 w-0" />
-      {mounted && container && createPortal(<p>progress bar</p>, container)}
+      {mounted &&
+        container &&
+        createPortal(<ProgressBar percentage={percentage} />, container)}
       <SectionText currentSection={section} />
-      <Section
+      <SurveySection
         statementObj={surveyStatements[section]}
         sectionNumber={section}
         handleNextClick={handleNext}
         handlePreviousClick={handlePrevious}
+        setAnswers={handleSetAnswers}
+        answers={answers}
       />
     </>
-  );
-}
-
-type SectionProps = {
-  statementObj: SurveyStatementsT;
-  sectionNumber: number;
-  handleNextClick: () => void;
-  handlePreviousClick: () => void;
-};
-
-function Section({
-  statementObj,
-  sectionNumber,
-  handleNextClick,
-  handlePreviousClick,
-}: SectionProps) {
-  const { statements, fatigueType } = statementObj;
-  return (
-    <>
-      {statements.map((st, i) => (
-        <Statement key={`${sectionNumber}-${i}`} statement={st} />
-      ))}
-      <div className="my-10 flex items-center justify-between gap-3">
-        {sectionNumber > 0 ? (
-          <Button
-            variant="secondary"
-            className="group w-full justify-center sm:w-fit"
-            onClick={handlePreviousClick}
-            title="Next section"
-          >
-            <ChevronLeft
-              size={20}
-              className="relative left-0 transition-all group-hover:-left-1.5"
-            />{" "}
-            Previous
-          </Button>
-        ) : (
-          <div></div>
-        )}
-
-        <Button
-          variant="primary"
-          className="group w-full justify-center sm:w-fit"
-          onClick={handleNextClick}
-          title="Next section"
-        >
-          Next{" "}
-          <ChevronRight
-            size={20}
-            className="relative right-0 transition-all group-hover:-right-1.5"
-          />
-        </Button>
-      </div>
-    </>
-  );
-}
-
-function Statement({ statement }: { statement: string }) {
-  return (
-    <div className="my-7">
-      <div className="bg-primary-200 mb-3 rounded px-3 pt-1 pb-3">
-        <p className="text-primary-off! text-[10px]! tracking-wider uppercase">
-          Statement
-        </p>
-        <p className="text-center sm:text-lg!">"{statement}"</p>
-      </div>
-      <Answers statement={statement} />
-    </div>
-  );
-}
-
-function Answers({ statement }: { statement: string }) {
-  const [selected, setSelected] = useState<number | null>(null);
-
-  return (
-    <div role="radiogroup">
-      {surveyAnswers.map((ans) => (
-        <RadioInput
-          key={`${statement}-${ans.answer}`}
-          label={ans.answer}
-          value={ans.score}
-          name={statement}
-          selected={selected === ans.score}
-          setSelected={setSelected}
-        />
-      ))}
-    </div>
   );
 }
 
