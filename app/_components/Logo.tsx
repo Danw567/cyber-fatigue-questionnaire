@@ -9,7 +9,7 @@ export default function Logo({ width }: { width?: string }) {
         width={400}
         height={135}
         alt="CyFa-4 Logo"
-        src="logo.svg"
+        src="/logo.svg"
         priority
       />
     </div>
