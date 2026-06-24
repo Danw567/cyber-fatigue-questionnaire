@@ -18,7 +18,7 @@ export default function SurveyStatement({
 }: StatementProps) {
   return (
     <div className="my-7">
-      <div className="bg-primary-200 mb-3 rounded px-3 pt-1 pb-3">
+      <div className="bg-primary-100 mb-3 rounded px-3 pt-1 pb-3">
         <p className="text-primary-off! text-[10px]! tracking-wider uppercase">
           Statement
         </p>
