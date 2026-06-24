@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import SurveySection from "./SurveySection";
 import { useRouter } from "next/navigation";
+import { computeScoreAverages } from "@/app/_utils/utils";
 
 export type SelectedAnswer = {
   type: string;
@@ -48,6 +49,8 @@ export default function Survey() {
   const handleNext = () => {
     if (answerCount === answers.length) {
       router.push("/survey/completed");
+      const computedAverages = computeScoreAverages(answers);
+      console.log("Submitting: ", computedAverages);
     } else {
       setSection((prev) => {
         if (prev === surveyStatements.length - 1)
