@@ -13,7 +13,7 @@ export default function page() {
 
         <p className="mb-6 text-sm">
           Your answers are in. We're using these trends to help your
-          organization simplify workflows and reduce daily security friction.
+          organisation simplify workflows and reduce daily security friction.
         </p>
 
         <div className="text-alt-400 border-l-primary-off inline-flex items-center gap-1.5 rounded border-l-4 bg-white px-2.5 py-1 text-xs font-medium">
