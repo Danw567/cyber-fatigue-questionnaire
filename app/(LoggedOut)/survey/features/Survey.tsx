@@ -50,7 +50,8 @@ export default function Survey() {
     if (answerCount === answers.length) {
       router.push("/survey/completed");
       const computedAverages = computeScoreAverages(answers);
-      console.log("Submitting: ", computedAverages);
+
+      // SEND TO THE DATABASE HERE
     } else {
       setSection((prev) => {
         if (prev === surveyStatements.length - 1)
