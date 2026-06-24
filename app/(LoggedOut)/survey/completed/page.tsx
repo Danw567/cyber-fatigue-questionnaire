@@ -3,7 +3,7 @@ import { CheckCircle, ShieldCheckIcon } from "lucide-react";
 
 export default function page() {
   return (
-    <div className="bg-primary-100 mx-auto mt-8 max-w-md rounded-lg">
+    <div className="bg-primary-100 mx-auto mt-8 max-w-md rounded-lg shadow-sm">
       <div className="flex flex-col items-center p-8 text-center">
         <div className="text-primary mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-white">
           <CheckCircle size={50} />
