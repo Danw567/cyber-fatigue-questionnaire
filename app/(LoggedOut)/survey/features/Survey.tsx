@@ -4,6 +4,7 @@ import { surveyStatements } from "@/app/_data/statements";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import SurveySection from "./SurveySection";
+import { useRouter } from "next/navigation";
 
 export type SelectedAnswer = {
   type: string;
@@ -12,6 +13,7 @@ export type SelectedAnswer = {
 };
 
 export default function Survey() {
+  const router = useRouter();
   const [mounted, setMounted] = useState(false);
   const [section, setSection] = useState(0);
   const [answers, setAnswers] = useState<SelectedAnswer[]>([]);
@@ -44,15 +46,20 @@ export default function Survey() {
   }, []);
 
   const handleNext = () => {
-    setSection((prev) => {
-      if (prev === surveyStatements.length - 1)
-        return surveyStatements.length - 1;
+    if (answerCount === answers.length) {
+      router.push("/survey/completed");
+    } else {
+      setSection((prev) => {
+        if (prev === surveyStatements.length - 1)
+          return surveyStatements.length - 1;
 
-      return prev + 1;
-    });
-    const topAnchor = document.getElementById("survey-top");
-    if (topAnchor) {
-      topAnchor.scrollIntoView({ behavior: "smooth" });
+        return prev + 1;
+      });
+
+      const topAnchor = document.getElementById("survey-top");
+      if (topAnchor) {
+        topAnchor.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
 
@@ -70,10 +77,14 @@ export default function Survey() {
 
   return (
     <>
-      <div id="survey-top" className="h-0 w-0" />
       {mounted &&
         container &&
-        createPortal(<ProgressBar percentage={percentage} />, container)}
+        createPortal(
+          <div className="w-full max-w-[80%]">
+            <ProgressBar percentage={percentage} />
+          </div>,
+          container,
+        )}
       <SectionText currentSection={section} />
       <SurveySection
         statementObj={surveyStatements[section]}

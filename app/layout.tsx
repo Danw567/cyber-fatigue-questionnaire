@@ -28,10 +28,14 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="bg-background">
-        <main className="bg-card mx-auto h-dvh max-w-200 overflow-auto p-5 pb-10 shadow-2xl">
-          <div className="flex justify-between gap-30">
+        <main className="bg-card mx-auto h-dvh max-w-200 overflow-auto px-5 pb-10 shadow-2xl">
+          <div id="survey-top" className="h-5 w-0" />
+          <div className="flex justify-between">
             <Logo width="150" />
-            <div id="logo-bar-right" className="w-full"></div>
+            <div
+              id="logo-bar-right"
+              className="mx-auto flex w-full justify-end"
+            ></div>
           </div>
           {children}
         </main>
