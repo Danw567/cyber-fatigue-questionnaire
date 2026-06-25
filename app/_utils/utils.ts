@@ -1,6 +1,9 @@
 import { SelectedAnswer } from "../(LoggedOut)/survey/features/Survey";
+import { AssessmentPayload } from "../_actions.ts/surveyAssessment";
 
-export function computeScoreAverages(answers: SelectedAnswer[]) {
+export function computeScoreAverages(
+  answers: SelectedAnswer[],
+): AssessmentPayload {
   const groupedAnswers = Object.groupBy(answers, (ans) => ans.type);
 
   const categoryAverages = Object.fromEntries(

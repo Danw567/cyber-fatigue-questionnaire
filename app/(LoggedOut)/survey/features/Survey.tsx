@@ -6,6 +6,10 @@ import { createPortal } from "react-dom";
 import SurveySection from "./SurveySection";
 import { useRouter } from "next/navigation";
 import { computeScoreAverages } from "@/app/_utils/utils";
+import {
+  AssessmentPayload,
+  submitCyfaAssessment,
+} from "@/app/_actions.ts/surveyAssessment";
 
 export type SelectedAnswer = {
   type: string;
@@ -46,11 +50,11 @@ export default function Survey() {
     setMounted(true);
   }, []);
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (answerCount === answers.length) {
       router.push("/survey/completed");
-      const computedAverages = computeScoreAverages(answers);
-
+      const computedAverages: AssessmentPayload = computeScoreAverages(answers);
+      await submitCyfaAssessment(computedAverages);
       // SEND TO THE DATABASE HERE
     } else {
       setSection((prev) => {
