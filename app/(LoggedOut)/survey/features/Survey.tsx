@@ -1,7 +1,7 @@
 "use client";
 import ProgressBar from "@/app/_components/ProgressBar";
 import { surveyStatements } from "@/app/_data/statements";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { createPortal } from "react-dom";
 import SurveySection from "./SurveySection";
 import { useRouter } from "next/navigation";
@@ -22,6 +22,7 @@ export default function Survey() {
   const [mounted, setMounted] = useState(false);
   const [section, setSection] = useState(0);
   const [answers, setAnswers] = useState<SelectedAnswer[]>([]);
+  const [isSubmitting, startTransition] = useTransition();
 
   const answerCount = surveyStatements.flatMap((ss) => ss.statements).length;
   const percentage = (answers.length / answerCount) * 100;
@@ -50,12 +51,14 @@ export default function Survey() {
     setMounted(true);
   }, []);
 
-  const handleNext = async () => {
+  const handleNext = () => {
     if (answerCount === answers.length) {
-      router.push("/survey/completed");
-      const computedAverages: AssessmentPayload = computeScoreAverages(answers);
-      await submitCyfaAssessment(computedAverages);
-      // SEND TO THE DATABASE HERE
+      startTransition(async () => {
+        const computedAverages: AssessmentPayload =
+          computeScoreAverages(answers);
+        await submitCyfaAssessment(computedAverages);
+        router.push("/survey/completed");
+      });
     } else {
       setSection((prev) => {
         if (prev === surveyStatements.length - 1)
@@ -101,6 +104,7 @@ export default function Survey() {
         handlePreviousClick={handlePrevious}
         setAnswers={handleSetAnswers}
         answers={answers}
+        isSubmitting={isSubmitting}
       />
     </>
   );

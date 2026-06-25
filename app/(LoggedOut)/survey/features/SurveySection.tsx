@@ -2,7 +2,7 @@ import { surveyStatements, SurveyStatementsT } from "@/app/_data/statements";
 import { SelectedAnswer } from "./Survey";
 import SurveyStatement from "./SurveyStatement";
 import Button from "@/app/_components/Button";
-import { CheckCircle, ChevronLeft, ChevronRight } from "lucide-react";
+import { CheckCircle, ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
 
 const SECTION_STATEMENT_COUNT = 4;
 
@@ -13,6 +13,7 @@ type SectionProps = {
   handlePreviousClick: () => void;
   setAnswers: (val: SelectedAnswer) => void;
   answers: SelectedAnswer[];
+  isSubmitting: boolean;
 };
 
 export default function SurveySection({
@@ -22,6 +23,7 @@ export default function SurveySection({
   handlePreviousClick,
   setAnswers,
   answers,
+  isSubmitting,
 }: SectionProps) {
   const { statements, fatigueType } = statementObj;
   const realSectionNumber = sectionNumber + 1;
@@ -66,11 +68,19 @@ export default function SurveySection({
           className="group w-full justify-center sm:w-fit"
           onClick={handleNextClick}
           title="Next section"
-          disabled={isNextBtnDisabled}
+          disabled={isNextBtnDisabled || isSubmitting}
         >
           {nextStepToComplete ? (
             <>
-              Complete <CheckCircle size={18} />
+              {isSubmitting ? (
+                <>
+                  Submitting... <Loader2 size={18} className="animate-spin" />
+                </>
+              ) : (
+                <>
+                  Complete <CheckCircle size={18} />
+                </>
+              )}
             </>
           ) : (
             <>
