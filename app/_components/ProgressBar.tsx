@@ -15,13 +15,13 @@ export default function ProgressBar({ percentage }: { percentage: number }) {
     <div className="w-full">
       <span className="text-xs leading-0">
         <span className="font-medium">
-          <CountUp start={start} end={percentage} />%
+          <CountUp duration={5} start={start} end={percentage} />%
         </span>{" "}
         Complete
       </span>
       <div className="border-primary-off h-2 w-full rounded-full border">
         <div
-          className="bg-primary h-full transition-all duration-1400 ease-in-out"
+          className="bg-primary h-full transition-all duration-500 ease-in-out"
           style={{ width: `${percentage}%` }}
         ></div>
       </div>

@@ -22,6 +22,7 @@ export default function Survey() {
   const [mounted, setMounted] = useState(false);
   const [section, setSection] = useState(0);
   const [answers, setAnswers] = useState<SelectedAnswer[]>([]);
+  const [submitError, setSubmitError] = useState(false);
   const [isSubmitting, startTransition] = useTransition();
 
   const answerCount = surveyStatements.flatMap((ss) => ss.statements).length;
@@ -52,12 +53,19 @@ export default function Survey() {
   }, []);
 
   const handleNext = () => {
+    setSubmitError(false);
     if (answerCount === answers.length) {
       startTransition(async () => {
         const computedAverages: AssessmentPayload =
           computeScoreAverages(answers);
-        await submitCyfaAssessment(computedAverages);
-        router.push("/survey/completed");
+
+        try {
+          await submitCyfaAssessment(computedAverages);
+          router.push("/survey/completed");
+        } catch (e) {
+          console.log("There was an error", e);
+          setSubmitError(true);
+        }
       });
     } else {
       setSection((prev) => {
@@ -105,6 +113,7 @@ export default function Survey() {
         setAnswers={handleSetAnswers}
         answers={answers}
         isSubmitting={isSubmitting}
+        hasError={submitError}
       />
     </>
   );

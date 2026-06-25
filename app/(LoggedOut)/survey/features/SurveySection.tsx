@@ -3,6 +3,7 @@ import { SelectedAnswer } from "./Survey";
 import SurveyStatement from "./SurveyStatement";
 import Button from "@/app/_components/Button";
 import { CheckCircle, ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
+import InfoCard from "@/app/_components/InfoCard";
 
 const SECTION_STATEMENT_COUNT = 4;
 
@@ -14,6 +15,7 @@ type SectionProps = {
   setAnswers: (val: SelectedAnswer) => void;
   answers: SelectedAnswer[];
   isSubmitting: boolean;
+  hasError: boolean;
 };
 
 export default function SurveySection({
@@ -24,6 +26,7 @@ export default function SurveySection({
   setAnswers,
   answers,
   isSubmitting,
+  hasError,
 }: SectionProps) {
   const { statements, fatigueType } = statementObj;
   const realSectionNumber = sectionNumber + 1;
@@ -45,6 +48,14 @@ export default function SurveySection({
           answers={answers}
         />
       ))}
+      {hasError && (
+        <InfoCard
+          type="error"
+          title="The server is on a break!"
+          message="It appears something went wrong. Please try again! "
+        />
+      )}
+
       <div className="my-10 flex items-center justify-between gap-3">
         {sectionNumber > 0 ? (
           <Button

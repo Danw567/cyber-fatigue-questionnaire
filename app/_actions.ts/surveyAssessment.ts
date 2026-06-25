@@ -18,7 +18,6 @@ export async function submitCyfaAssessment(data: AssessmentPayload) {
   };
 
   const { error } = await supabase.from("evaluations").insert([dbRow]);
-
   if (error) {
     console.error("Database write error:", error.message);
     throw new Error(error.message);
