@@ -9,7 +9,7 @@ import { computeScoreAverages } from "@/app/_utils/utils";
 import {
   AssessmentPayload,
   submitCyfaAssessment,
-} from "@/app/_actions.ts/surveyAssessment";
+} from "@/app/_actions/surveyAssessment";
 
 export type SelectedAnswer = {
   type: string;

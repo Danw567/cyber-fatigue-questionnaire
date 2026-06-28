@@ -1,10 +1,5 @@
 import React from "react";
 import Logo from "../_components/Logo";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Survey | CyFa-4",
-};
 
 export default function layout({
   children,

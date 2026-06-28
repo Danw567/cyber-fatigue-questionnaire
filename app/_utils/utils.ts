@@ -1,5 +1,5 @@
 import { SelectedAnswer } from "../(LoggedOut)/survey/features/Survey";
-import { AssessmentPayload } from "../_actions.ts/surveyAssessment";
+import { AssessmentPayload } from "../_actions/surveyAssessment";
 
 export function computeScoreAverages(
   answers: SelectedAnswer[],
@@ -26,3 +26,11 @@ export function computeScoreAverages(
     cognitive,
   };
 }
+
+const sum = (scores: number[]) => scores.reduce((acc, curr) => acc + curr, 0);
+
+export const calcAvg = (scores: number[]) => {
+  return (
+    scores && scores.length > 0 ? sum(scores) / scores.length : 0
+  ).toFixed(2);
+};

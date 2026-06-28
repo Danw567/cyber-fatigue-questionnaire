@@ -13,6 +13,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const metadata: Metadata = {
+  title: "Survey | CyFa-4",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

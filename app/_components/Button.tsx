@@ -24,7 +24,7 @@ export default function Button({
   const primaryClass =
     "bg-primary-off hover:bg-primary text-white border-primary-off hover:border-primary";
   const secondaryClass =
-    "border-alt text-alt hover:border-secondary hover:text-secondary";
+    "border-secondary text-secondary hover:border-primary-off hover:text-primary-off";
 
   const buttonClass = variant === "primary" ? primaryClass : secondaryClass;
   const disabledClass = disabled ? "pointer-events-none opacity-50" : "";
