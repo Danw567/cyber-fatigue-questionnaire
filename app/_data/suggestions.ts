@@ -4,7 +4,7 @@ export type SuggestionsT = {
   suggestions: SuggestionT[];
 };
 
-type SuggestionT = {
+export type SuggestionT = {
   title: string;
   explanation: string;
 };
