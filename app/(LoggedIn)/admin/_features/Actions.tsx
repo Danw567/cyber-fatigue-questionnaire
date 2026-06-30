@@ -64,7 +64,7 @@ function ActionPanel({ type }: { type: FatigueType }) {
   if (!suggestionObj) return null;
 
   return (
-    <div className="border-alt-200 bg-background rounded-lg border-2">
+    <div className="border-alt-200 bg-background rounded-lg border-2 shadow-sm">
       <button
         className="flex w-full cursor-pointer items-center justify-between p-4"
         onClick={handleExpansionToggle}
