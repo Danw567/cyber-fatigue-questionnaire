@@ -1,3 +1,16 @@
-export default function Page() {
-  return <div className="">This is the admin page </div>;
+import { getCurrentUser } from "@/app/_actions/admin/user";
+import LoginForm from "./LoginForm";
+import { redirect } from "next/navigation";
+
+export default async function Page() {
+  const session = await getCurrentUser();
+  console.log("SESSION", session);
+  if (session) redirect("/admin");
+
+  return (
+    <div className="mx-auto mt-6 max-w-100">
+      <h1 className="text-2xl!">Admin Login</h1>
+      <LoginForm />
+    </div>
+  );
 }

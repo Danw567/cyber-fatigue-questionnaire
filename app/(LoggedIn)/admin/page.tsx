@@ -2,11 +2,17 @@ import { getAllEvaluationResults } from "@/app/_actions/admin/fetchResults";
 import { calcAvg } from "@/app/_utils/utils";
 import { ResultCard } from "./_features/ResultCard";
 import { Actions } from "./_features/Actions";
+import { getCurrentUser } from "@/app/_actions/admin/user";
+import { redirect } from "next/navigation";
 
 export const URGENT_SCORE = 3.8;
 export const WARNING_SCORE = 2.6;
 
 export default async function page() {
+  const session = await getCurrentUser();
+  console.log("SESSION", session);
+  if (!session) redirect("/login");
+
   const results = await getAllEvaluationResults();
 
   const action_results = calcAvg(results.map((res) => res.action_avg));

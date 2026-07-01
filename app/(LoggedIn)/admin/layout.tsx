@@ -1,3 +1,4 @@
+import { logOut } from "@/app/_actions/admin/user";
 import Button from "@/app/_components/Button";
 import Logo from "@/app/_components/Logo";
 import { LogOut } from "lucide-react";
@@ -20,6 +21,7 @@ export default function layout({
           title="Log out"
           variant="secondary"
           className="flex cursor-pointer items-center gap-2 px-4! py-2!"
+          onClick={logOut}
         >
           <LogOut />
         </Button>
