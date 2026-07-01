@@ -34,6 +34,7 @@ export default function LoginForm() {
           id="username"
           name="username"
           className="border-alt group-focus-within:border-primary-off h-9 rounded border-2 px-2 outline-0"
+          type="email"
           value={username}
           onChange={(e) => setUsername(e.target.value.trim())}
         />

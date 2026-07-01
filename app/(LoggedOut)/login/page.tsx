@@ -4,7 +4,6 @@ import { redirect } from "next/navigation";
 
 export default async function Page() {
   const session = await getCurrentUser();
-  console.log("SESSION", session);
   if (session) redirect("/admin");
 
   return (

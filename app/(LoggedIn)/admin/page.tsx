@@ -10,10 +10,11 @@ export const WARNING_SCORE = 2.6;
 
 export default async function page() {
   const session = await getCurrentUser();
-  console.log("SESSION", session);
   if (!session) redirect("/login");
 
   const results = await getAllEvaluationResults();
+
+  const username = session.user.email?.split("@")[0];
 
   const action_results = calcAvg(results.map((res) => res.action_avg));
   const advice_results = calcAvg(results.map((res) => res.advice_avg));
@@ -31,7 +32,7 @@ export default async function page() {
   return (
     <div>
       <h1>
-        Hello, <span className="text-primary-off">[NAME]</span>
+        Hello, <span className="text-primary-off capitalize">{username}</span>
       </h1>
       <h2 className="mt-2 text-2xl!">
         <span className="text-primary-off">{results.length}</span> member
