@@ -13,7 +13,7 @@ export const suggestions: SuggestionsT[] = [
   {
     type: "action",
     description:
-      'The exhaustion resulting from excessive daily security "friction." It occurs when manual tasks like frequent re-authentications, redundant prompts, and cumbersome workflows tax a user\'s operational patience, leading them to prioritize speed over safety by seeking out workarounds.',
+      'The exhaustion resulting from excessive daily security "friction." It occurs when manual tasks like frequent re-authentications, redundant prompts, and cumbersome workflows tax a user\'s operational patience, leading them to prioritise speed over safety by seeking out workarounds.',
     suggestions: [
       {
         title: "Eliminate Arbitrary Password Expirations",
@@ -92,7 +92,7 @@ export const suggestions: SuggestionsT[] = [
       {
         title: "Make the 'Why' Relatable and Explicit",
         explanation:
-          '"Because it\'s policy" breeds resentment. When enforcing a rule, clearly explain the specific, relatable risk it mitigates. For example, instead of "Do not plug in unauthorized USBs," explain that "A compromised USB can lock down the entire accounting department\'s network in seconds."',
+          '"Because it\'s policy" breeds resentment. When enforcing a rule, clearly explain the specific, relatable risk it mitigates. For example, instead of "Do not plug in unauthorised USBs," explain that "A compromised USB can lock down the entire accounting department\'s network in seconds."',
       },
       {
         title: "Enforce Visible Executive Compliance",
@@ -109,12 +109,12 @@ export const suggestions: SuggestionsT[] = [
   {
     type: "cognitive",
     description:
-      'Cognitive fatigue occurs when a user’s mental bandwidth is overloaded, leading to "click-blindness" or habituated, automatic unsafe behaviors without conscious awareness.',
+      'Cognitive fatigue occurs when a user\'s mental bandwidth is overloaded, leading to "click-blindness" or habituated, automatic unsafe behaviours without conscious awareness.',
     suggestions: [
       {
         title: 'Break the "Click-Blindness" Habit',
         explanation:
-          'If a user sees the exact same security pop-up every day, their brain learns to dismiss it automatically. Combat this by changing the visual appearance, color, or placement of critical warnings so they force a momentary pause and break the habituated muscle memory of clicking "Accept."',
+          'If a user sees the exact same security pop-up every day, their brain learns to dismiss it automatically. Combat this by changing the visual appearance, colour, or placement of critical warnings so they force a momentary pause and break the habituated muscle memory of clicking "Accept."',
       },
       {
         title: "Implement Secure-by-Default Settings",
@@ -124,7 +124,7 @@ export const suggestions: SuggestionsT[] = [
       {
         title: "Automate the Technical Decisions",
         explanation:
-          "Stop asking users to evaluate technical certificates, verify domain structures, or parse complex URL strings to decide if a site is safe. If a decision requires technical analysis, the security architecture should be making that decision in the background—blocking the malicious site before the user even has to think about it.",
+          "Stop asking users to evaluate technical certificates, verify domain structures, or parse complex URL strings to decide if a site is safe. If a decision requires technical analysis, the security architecture should be making that decision in the background, blocking the malicious site before the user even has to think about it.",
       },
       {
         title: "Redesign Warnings for High Readability",
