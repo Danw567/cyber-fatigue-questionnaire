@@ -3,8 +3,8 @@ import LoginForm from "./LoginForm";
 import { redirect } from "next/navigation";
 
 export default async function Page() {
-  const session = await getCurrentUser();
-  if (session) redirect("/admin");
+  const user = await getCurrentUser();
+  if (user) redirect("/admin");
 
   return (
     <div className="mx-auto mt-6 max-w-100">

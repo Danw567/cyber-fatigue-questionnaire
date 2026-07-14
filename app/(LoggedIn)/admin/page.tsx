@@ -9,12 +9,12 @@ export const URGENT_SCORE = 3.8;
 export const WARNING_SCORE = 2.6;
 
 export default async function page() {
-  const session = await getCurrentUser();
-  if (!session) redirect("/login");
+  const user = await getCurrentUser();
+  if (!user) redirect("/login");
 
   const results = await getAllEvaluationResults();
 
-  const username = session.user.email?.split("@")[0];
+  const username = user.email?.split("@")[0];
 
   const action_results = calcAvg(results.map((res) => res.action_avg));
   const advice_results = calcAvg(results.map((res) => res.advice_avg));

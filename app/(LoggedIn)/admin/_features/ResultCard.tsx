@@ -16,7 +16,7 @@ export function ResultCard({ type, score }: ResultCardProps) {
         iconbg: "bg-rose-100",
       };
     }
-    if (val >= 2.6 && val <= 3.7) {
+    if (val >= 2.6 && val <= 3.79) {
       return {
         cardClass: "border-amber-200 bg-amber-50 text-amber-600",
         icon: <CircleAlert size={18} />,
