@@ -77,9 +77,9 @@ export default function Survey() {
         return prev + 1;
       });
 
-      const topAnchor = document.getElementById("survey-top");
-      if (topAnchor) {
-        topAnchor.scrollIntoView({ behavior: "smooth" });
+      const main = document.getElementById("main");
+      if (main) {
+        main.scrollTo({ top: 0, left: 0, behavior: "smooth" });
       }
     }
   };

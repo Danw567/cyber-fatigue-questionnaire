@@ -1,7 +1,5 @@
 import DataSafeGaurdSplit from "./_features/DataSafeGaurdSplit";
 import InfoCard from "./_components/InfoCard";
-import Button from "./_components/Button";
-import { ChevronRight } from "lucide-react";
 import Logo from "./_components/Logo";
 import LandingPageContinue from "./_features/LandingPageSelection";
 
