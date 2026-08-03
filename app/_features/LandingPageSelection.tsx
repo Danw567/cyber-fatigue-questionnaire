@@ -13,7 +13,7 @@ export default function LandingPageContinue() {
     <div className="mt-4 flex flex-col items-center justify-center gap-8">
       <CheckBox
         isChecked={isTechnicalUser}
-        label="Do you consider yourself a technical person?"
+        label="I consider myself a technical person"
         setIsChecked={setToggleChecked}
       />
       <Button

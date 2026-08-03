@@ -5,11 +5,8 @@ import { useEffect, useState, useTransition } from "react";
 import { createPortal } from "react-dom";
 import SurveySection from "./SurveySection";
 import { useRouter } from "next/navigation";
-import { computeScoreAverages } from "@/app/_utils/utils";
-import {
-  AssessmentPayload,
-  submitCyfaAssessment,
-} from "@/app/_actions/surveyAssessment";
+import { AssessmentScores, computeScoreAverages } from "@/app/_utils/utils";
+import { submitCyfaAssessment } from "@/app/_actions/surveyAssessment";
 import { useTechincalUserContext } from "@/app/context/useTechnicalUser";
 
 export type SelectedAnswer = {
@@ -58,7 +55,7 @@ export default function Survey() {
     setSubmitError(false);
     if (answerCount === answers.length) {
       startTransition(async () => {
-        const computedAverages: AssessmentPayload =
+        const computedAverages: AssessmentScores =
           computeScoreAverages(answers);
 
         try {

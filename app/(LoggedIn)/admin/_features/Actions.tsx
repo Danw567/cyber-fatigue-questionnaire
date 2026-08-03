@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { Plus } from "lucide-react";
 import { suggestions, SuggestionT } from "@/app/_data/suggestions";
-import { URGENT_SCORE, WARNING_SCORE } from "../page";
 import InfoCard from "@/app/_components/InfoCard";
+import { URGENT_SCORE, WARNING_SCORE } from "./ResultCardSection";
 
 type FatigueType = "action" | "advice" | "attitudinal" | "cognitive";
 
