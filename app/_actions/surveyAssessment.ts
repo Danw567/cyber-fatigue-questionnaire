@@ -7,6 +7,7 @@ export interface AssessmentPayload {
   advice: number;
   attitudinal: number;
   cognitive: number;
+  isTechnicalUser: boolean;
 }
 
 export async function submitCyfaAssessment(data: AssessmentPayload) {
@@ -15,6 +16,7 @@ export async function submitCyfaAssessment(data: AssessmentPayload) {
     advice_avg: data.advice,
     attitudinal_avg: data.attitudinal,
     cognitive_avg: data.cognitive,
+    isTechnicalUser: data.isTechnicalUser,
   };
 
   const { error } = await supabase.from("evaluations").insert([dbRow]);

@@ -3,6 +3,7 @@ import InfoCard from "./_components/InfoCard";
 import Button from "./_components/Button";
 import { ChevronRight } from "lucide-react";
 import Logo from "./_components/Logo";
+import LandingPageContinue from "./_features/LandingPageSelection";
 
 export default function Home() {
   return (
@@ -32,20 +33,7 @@ export default function Home() {
             message="Closing the page without completing the survey will erase any progress."
           />
 
-          <div className="mt-4 flex items-center justify-center">
-            <Button
-              variant="primary"
-              className="group w-full justify-center sm:w-fit"
-              href="/survey"
-              title="Start survey"
-            >
-              Start Survey{" "}
-              <ChevronRight
-                size={20}
-                className="relative right-0 transition-all group-hover:-right-1.5"
-              />
-            </Button>
-          </div>
+          <LandingPageContinue />
         </div>
       </div>
     </main>

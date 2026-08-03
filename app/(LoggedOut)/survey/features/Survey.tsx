@@ -10,6 +10,7 @@ import {
   AssessmentPayload,
   submitCyfaAssessment,
 } from "@/app/_actions/surveyAssessment";
+import { useTechincalUserContext } from "@/app/context/useTechnicalUser";
 
 export type SelectedAnswer = {
   type: string;
@@ -19,6 +20,7 @@ export type SelectedAnswer = {
 
 export default function Survey() {
   const router = useRouter();
+  const { isTechnicalUser } = useTechincalUserContext();
   const [mounted, setMounted] = useState(false);
   const [section, setSection] = useState(0);
   const [answers, setAnswers] = useState<SelectedAnswer[]>([]);
@@ -60,7 +62,10 @@ export default function Survey() {
           computeScoreAverages(answers);
 
         try {
-          await submitCyfaAssessment(computedAverages);
+          await submitCyfaAssessment({
+            ...computedAverages,
+            isTechnicalUser: isTechnicalUser,
+          });
           router.push("/survey/completed");
         } catch (e) {
           console.log("There was an error", e);
