@@ -16,7 +16,7 @@ export const surveyStatements: SurveyStatementsT[] = [
   {
     fatigueType: "action",
     statements: [
-      "Performing security tasks (like frequent password changes or MFA) feels like a chore",
+      "Performing security tasks (like frequent password changes or Multi-factor Authentication) feels like a chore",
       "The security procedures I have to follow interfere with my daily productivity",
       "I feel physically or mentally tired from constantly having to perform security checks",
       "I find myself looking for ways to bypass security steps to save time",
