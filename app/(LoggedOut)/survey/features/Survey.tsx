@@ -79,8 +79,7 @@ export default function Survey() {
 
       const main = document.getElementById("main");
       if (main) {
-        main.scrollTop = 0;
-        main.scrollLeft = 0;
+        main.scrollTo({ top: 0, left: 0 });
       }
     }
   };
