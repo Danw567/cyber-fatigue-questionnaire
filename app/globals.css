@@ -199,3 +199,9 @@ li::marker {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-primary-off);
 }
+
+#main {
+  scroll-behavior: smooth;
+  /* Optional: Helps with momentum scrolling on older iOS */
+  -webkit-overflow-scrolling: touch;
+}
