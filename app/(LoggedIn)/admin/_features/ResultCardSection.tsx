@@ -11,15 +11,11 @@ export const WARNING_SCORE = 2.6;
 
 export default function ResultCardSection({ results }: { results: any }) {
   const [resultFilter, setResultFilter] = useState<boolean | null>(null);
-  console.log("RESULTS FILTER", resultFilter);
-  console.log("results", results);
 
   const filteredResults =
     resultFilter !== null
       ? results.filter((res: any) => res.isTechnicalUser == resultFilter)
       : results;
-
-  console.log("FILTERED RESULTS", filteredResults);
 
   const action_results = calcAvg(
     filteredResults.map((res: any) => res.action_avg),
@@ -40,6 +36,9 @@ export default function ResultCardSection({ results }: { results: any }) {
     Number(cognitive_results) >= WARNING_SCORE ||
     Number(attitudinal_results) >= WARNING_SCORE;
 
+  const filterPhrase =
+    resultFilter === null ? "" : resultFilter ? "technical" : "non-technical";
+
   return (
     <>
       <Tabs resultFilter={resultFilter} setResultFilter={setResultFilter} />
@@ -48,7 +47,7 @@ export default function ResultCardSection({ results }: { results: any }) {
         <>
           <h2 className="mt-2 text-2xl!">
             <span className="text-primary-off">{filteredResults.length}</span>{" "}
-            member
+            {filterPhrase} member
             {filteredResults.length > 1 ? "s" : ""} of staff{" "}
             {filteredResults.length > 1 ? "have" : "has"} completed the survey.
           </h2>
